@@ -1,16 +1,18 @@
 import React from 'react';
 import CommentSection from './CommentSection';
 import PropTypes from 'prop-types';
+import './Post.css';
 
 const Post = props => {
     return(
-        <div>
-            <div>
-            <img src={props.post.thumbnailUrl} alt={'thumbnail image'} />
-            <h4>{props.post.username}</h4>
+        <div className= "post">
+            <div className= "user">
+            <img className="user-image" src={props.post.thumbnailUrl} alt={'username thumbnail'} />
+            <h4 className= "user-name">{props.post.username}</h4>
             </div>
-            <img src={props.post.imageUrl} alt={'picture of coffee'}/>
-            <CommentSection comments= {props.post.comments}/>
+            <img className="post-image" src={props.post.imageUrl} alt={'post image'}/>
+            <CommentSection comments= {props.post.comments}  data={props.post}/>
+                            
         </div>
     );
 }

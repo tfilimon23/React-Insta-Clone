@@ -8,6 +8,7 @@ const Comment = props => {
             <h5>{props.comment.username}</h5>
             <p>{props.comment.text}</p>
         </div>
+
     );
 }
 
