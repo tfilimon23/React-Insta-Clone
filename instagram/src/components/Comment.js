@@ -11,4 +11,8 @@ const Comment = props => {
     );
 }
 
+Comment.defaultProps = {
+    comment: []
+  };
+
 export default Comment;
