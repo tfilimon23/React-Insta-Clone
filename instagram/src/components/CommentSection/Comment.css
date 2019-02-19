@@ -1,0 +1,43 @@
+.comment-section{
+    width: 90%;
+    padding: 0 10px;
+}
+
+.comments{
+    margin-left: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.likes{
+    font-weight: bold;
+}
+
+
+.comment{
+    display: flex;
+    align-items: center;
+}
+
+.comment-user{
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.timestamp{
+  color: gray;
+}
+
+.add-comment{
+    padding: 15px 0;
+    border: none;
+}
+
+form{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon{
+    width: 50px;
+}
