@@ -12,16 +12,26 @@ class App extends Component {
   constructor (){
     super ();
     this.state = {
-      data: dummyData
+      data: []
     };
   }
 
+  componentDidMount(){
+    this.setState({ data: dummyData }); 
+  }
+
+  searchBar = e => {
+    e.preventDefault();
+    this.setState({
+    data: this.state.data.filter(username => !username.username)
+    });
+  }
 
   render() {
     return (
       <div className="App">
-       <SearchBar />
-       <PostContainer data={this.state.data} />
+        <SearchBar searchBar={this.searchBar}/>
+        <PostContainer data={this.state.data} />
       </div>
     );
   }
