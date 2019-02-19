@@ -2,11 +2,13 @@
 .post{
     border: 1px solid lightgray;
     width: 60%;
+    margin: 80px 0 40px 40px;
 }
 
 .user{
     display: flex;
     align-items: center;
+    padding: 10px 0;
 }
 
 .user-image{
@@ -24,3 +26,4 @@
     width: 100%;
     height: auto;
 }
+
