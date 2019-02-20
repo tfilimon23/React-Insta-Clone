@@ -7,6 +7,8 @@ import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 import dummyData from './dummy-data';
 
+import PostsPage from './components/PostContainer/PostsPage';
+
 
 class App extends Component {
   constructor (){
@@ -23,20 +25,27 @@ class App extends Component {
 
   handleChanges = e => {
     this.setState({
-      [e.target.username]: e.target.value
+      [e.target.name]: e.target.value
     })
   }
+
+  searchBar = e => {
+    e.preventDefault();
+    this.setState({
+    data: this.state.data.filter(post => post.username.toLowerCase().includes(post.username.toLowerCase()))
+    });
+  };
 
 
   render() {
     return (
       <div className="App">
-        <SearchBar 
+        <PostsPage 
         data ={this.state.data}
-        handleChanges={this.handleChanges} />
-        <PostContainer 
-        data={this.state.data} 
-        handleChanges={this.handleChanges}/>
+        handleChanges={this.handleChanges}
+        searchBar={this.searchBar}
+        username= {this.state.username}
+        />
       </div>
     );
   }
