@@ -12,9 +12,10 @@ const SearchBar = props => {
             </div>
             <form>
                 <input
+                    value={props.username}
                     type ="text"
                     placeholder = "Search"
-                    // onSubmit={props.searchBar}
+                    onChange = {props.handleChanges}
                 />
             </form>
             <div>
@@ -29,4 +30,4 @@ const SearchBar = props => {
 export default SearchBar;
 
 
-    
+    // line 13 onSubmit={props.searchBar}

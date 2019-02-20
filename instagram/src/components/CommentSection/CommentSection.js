@@ -12,6 +12,25 @@ class CommentSection extends React.Component {
         };
     }
 
+    handleChanges = e => {
+        this.setState({
+          [e.target.name]: e.target.value
+        });
+      };
+
+    addNewComment = (e, index) => {
+    e.preventDefault();
+    const newComment ={
+        username: this.state.data.username,
+        text: this.state.comment
+    };
+    this.setState({
+        comments: [...this.state.comments, newComment],
+        comment: ''
+    });
+    };
+
+
     render() {
         return(
             <div className="comment-section">
@@ -24,10 +43,13 @@ class CommentSection extends React.Component {
                     ))}
                     <p className="timestamp">{this.state.data.timestamp}</p>
                 </div>
-                <form>
+                <form onSubmit ={this.addNewComment}>
                     <input className="add-comment"
+                        value={this.state.comment}
                         type ="text"
+                        name="comment"
                         placeholder = "Add a comment..."
+                        onChange= {this.handleChanges}
                     />
                     <img className="icon" src="https://img.icons8.com/ios/50/000000/ellipsis-filled.png" alt="ellipsis icon" />
                 </form>

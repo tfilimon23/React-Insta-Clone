@@ -12,7 +12,8 @@ class App extends Component {
   constructor (){
     super ();
     this.state = {
-      data: []
+      data: [],
+      username: ''
     };
   }
 
@@ -20,24 +21,25 @@ class App extends Component {
     this.setState({ data: dummyData }); 
   }
 
-  // searchBar = e => {
-  //   e.preventDefault();
-  //   this.setState({
-  //   data: this.state.data.filter(username => !username.username)
-  //   });
-  // }
+  handleChanges = e => {
+    this.setState({
+      [e.target.username]: e.target.value
+    })
+  }
+
 
   render() {
     return (
       <div className="App">
-        <SearchBar />
-        <PostContainer data={this.state.data} />
+        <SearchBar 
+        data ={this.state.data}
+        handleChanges={this.handleChanges} />
+        <PostContainer 
+        data={this.state.data} 
+        handleChanges={this.handleChanges}/>
       </div>
     );
   }
 }
 
 export default App;
-
-
-// searchBar={this.searchBar}
