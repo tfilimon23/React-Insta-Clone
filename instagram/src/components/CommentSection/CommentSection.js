@@ -8,7 +8,8 @@ class CommentSection extends React.Component {
         this.state = {
             comments: props.comments,
             data: props.data,
-            comment: ''
+            comment: '',
+            likes: props.likes
         };
     }
 
@@ -30,14 +31,23 @@ class CommentSection extends React.Component {
     });
     };
 
+     
+    addLikes = e => {
+    this.setState (prevState =>{
+        return{
+            likes: prevState.likes + 1,
+        }
+    });
+    };
+
 
     render() {
         return(
             <div className="comment-section">
-                <img  className="icon" src="https://img.icons8.com/ios/50/000000/like.png" alt="heart icon"/>
+                <img  className="icon"  onClick ={this.addLikes} src="https://img.icons8.com/ios/50/000000/like.png" alt="heart icon"/>
                 <img className="icon"  src="https://img.icons8.com/ios/50/000000/speech-bubble.png" alt ="comment bubble"/>
                 <div className ="comments">
-                    <p className="likes">{this.state.data.likes} likes</p>
+                    <p className="likes">{this.state.likes} likes</p>
                     {this.state.comments.map ((comment, index) => (
                     <Comment key={index} comment={comment} />
                     ))}

@@ -11,7 +11,7 @@ const Post = props => {
                 <h4 className= "user-name">{props.post.username}</h4>
             </div>
             <img className="post-image" src={props.post.imageUrl} alt={'post image'}/>
-            <CommentSection comments= {props.post.comments}  data={props.post}/>                   
+            <CommentSection comments= {props.post.comments}  data={props.post} likes={props.post.likes}/>                   
         </div>
     );
 }
