@@ -6,41 +6,25 @@ class CommentSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            comments: props.post.comments,
-            data: props.post,
+            comments: props.comments,
+            data: props.data,
             comment: ''
         };
-    }
-
-    addNewComment = (e, index) => {
-        e.preventDefault();
-        const newComment ={
-            username: philzcoffee,
-            text: this.state.comment
-        };
-        this.setState({
-            comments: [...this.state.comments, newComment],
-            comment: ''
-        });
-    };
-
-    addLikes = e => {
-    this.setState ({props.data.likes + 1})
     }
 
     render() {
         return(
             <div className="comment-section">
-                <img onClick={this.addLikes} className="icon" src="https://img.icons8.com/ios/50/000000/like.png" alt="heart icon"/>
+                <img  className="icon" src="https://img.icons8.com/ios/50/000000/like.png" alt="heart icon"/>
                 <img className="icon"  src="https://img.icons8.com/ios/50/000000/speech-bubble.png" alt ="comment bubble"/>
                 <div className ="comments">
-                    <p className="likes">{props.data.likes} likes</p>
-                    {props.comments.map ((comment, index) => (
+                    <p className="likes">{this.state.data.likes} likes</p>
+                    {this.state.comments.map ((comment, index) => (
                     <Comment key={index} comment={comment} />
                     ))}
-                    <p className="timestamp">{props.data.timestamp}</p>
+                    <p className="timestamp">{this.state.data.timestamp}</p>
                 </div>
-                <form onSubmit = {this.addNewComment(e, index)}>
+                <form>
                     <input className="add-comment"
                         type ="text"
                         placeholder = "Add a comment..."
@@ -53,3 +37,4 @@ class CommentSection extends React.Component {
 }
 
 export default CommentSection;
+

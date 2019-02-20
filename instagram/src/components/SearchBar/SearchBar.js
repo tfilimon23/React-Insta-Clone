@@ -14,7 +14,7 @@ const SearchBar = props => {
                 <input
                     type ="text"
                     placeholder = "Search"
-                    onSubmit={props.searchBar}
+                    // onSubmit={props.searchBar}
                 />
             </form>
             <div>

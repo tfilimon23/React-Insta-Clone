@@ -20,17 +20,17 @@ class App extends Component {
     this.setState({ data: dummyData }); 
   }
 
-  searchBar = e => {
-    e.preventDefault();
-    this.setState({
-    data: this.state.data.filter(username => !username.username)
-    });
-  }
+  // searchBar = e => {
+  //   e.preventDefault();
+  //   this.setState({
+  //   data: this.state.data.filter(username => !username.username)
+  //   });
+  // }
 
   render() {
     return (
       <div className="App">
-        <SearchBar searchBar={this.searchBar}/>
+        <SearchBar />
         <PostContainer data={this.state.data} />
       </div>
     );
@@ -38,3 +38,6 @@ class App extends Component {
 }
 
 export default App;
+
+
+// searchBar={this.searchBar}
