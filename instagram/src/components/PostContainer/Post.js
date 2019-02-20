@@ -7,12 +7,11 @@ const Post = props => {
     return(
         <div className= "post">
             <div className= "user">
-            <img className="user-image" src={props.post.thumbnailUrl} alt={'username thumbnail'} />
-            <h4 className= "user-name">{props.post.username}</h4>
+                <img className="user-image" src={props.post.thumbnailUrl} alt={'username thumbnail'} />
+                <h4 className= "user-name">{props.post.username}</h4>
             </div>
             <img className="post-image" src={props.post.imageUrl} alt={'post image'}/>
-            <CommentSection comments= {props.post.comments}  data={props.post}/>
-                            
+            <CommentSection comments= {props.post.comments}  data={props.post}/>                   
         </div>
     );
 }
