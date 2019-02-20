@@ -8,7 +8,11 @@ import PostContainer from './components/PostContainer/PostContainer';
 import dummyData from './dummy-data';
 
 import PostsPage from './components/PostContainer/PostsPage';
+import LoginPage from './components/Login/LoginPage';
+import withAuthenticate from './authentication/withAuthenticate';
 
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(LoginPage);
 
 class App extends Component {
   constructor (){
@@ -40,11 +44,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <PostsPage 
-        data ={this.state.data}
-        handleChanges={this.handleChanges}
-        searchBar={this.searchBar}
-        username= {this.state.username}
+        <ComponentFromWithAuthenticate 
+          data ={this.state.data}
+          handleChanges={this.handleChanges}
+          searchBar={this.searchBar}
+          username= {this.state.username}
         />
       </div>
     );
