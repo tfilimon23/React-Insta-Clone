@@ -36,7 +36,8 @@ class App extends Component {
   searchBar = e => {
     e.preventDefault();
     this.setState({
-    data: this.state.data.filter(post => post.username.toLowerCase().includes(this.state.username.toLowerCase()))
+    data: this.state.data.filter(post => post.username.toLowerCase().includes(this.state.username.toLowerCase())),
+      
     });
   };
 
