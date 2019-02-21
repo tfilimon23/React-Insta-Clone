@@ -3,8 +3,8 @@ import './App.css';
 
 import './dummy-data';
 
-import SearchBar from './components/SearchBar/SearchBar';
-import PostContainer from './components/PostContainer/PostContainer';
+// import SearchBar from './components/SearchBar/SearchBar';
+// import PostContainer from './components/PostContainer/PostContainer';
 import dummyData from './dummy-data';
 
 import PostsPage from './components/PostContainer/PostsPage';
@@ -36,7 +36,7 @@ class App extends Component {
   searchBar = e => {
     e.preventDefault();
     this.setState({
-    data: this.state.data.filter(post => post.username.toLowerCase().includes(post.username.toLowerCase()))
+    data: this.state.data.filter(post => post.username.toLowerCase().includes(this.state.username.toLowerCase()))
     });
   };
 
@@ -44,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ComponentFromWithAuthenticate 
+        <PostsPage
           data ={this.state.data}
           handleChanges={this.handleChanges}
           searchBar={this.searchBar}

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const withAuthenticate = FirstComponent => SecondComponent => 
+const withAuthenticate = FirstComponent => SecondComponent => props => 
     class extends React.Component {
-        constructor(){
-            super();
+        constructor(props){
+            super(props);
             this.state= {
                 loggedIn: "true"
             }
