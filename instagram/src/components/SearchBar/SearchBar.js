@@ -10,11 +10,13 @@ const SearchBar = props => {
                 <img className="icon" src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="instagram icon"/>
                 <img className ="insta-logo" src="instagram-logo.png" alt="instagram name logo"/>
             </div>
-            <form>
+            <form onSubmit={props.searchBar}>
                 <input
+                    value={props.username}
                     type ="text"
+                    name="username"
                     placeholder = "Search"
-                    // onSubmit={props.searchBar}
+                    onChange = {props.handleChanges}
                 />
             </form>
             <div>
@@ -29,4 +31,4 @@ const SearchBar = props => {
 export default SearchBar;
 
 
-    
+    // line 13 onSubmit={props.searchBar}
