@@ -1,6 +1,41 @@
 import React from 'react';
 import Comment from './Comment';
-import './Comment.css';
+import styled from 'styled-components';
+
+
+const CommentsSection = styled.section`
+width: 90%;
+padding: 0 10px;
+`;
+
+const CommentsDiv = styled.div`
+margin-left: 10px;
+border-bottom: 1px solid lightgray;
+`;
+
+const Likes = styled.p`
+font-weight: bold;
+`;
+
+const Timestamp = styled.p`
+color: gray;
+`;
+
+const Form =styled.form`
+display: flex;
+justify-content: space-between;
+align-items: center;
+`;
+
+const Input=styled.input`
+padding: 15px 0;
+border: none;
+`;
+
+const CommentsImg = styled.img`
+width: 40px;
+padding: 5px;
+`;
 
 class CommentSection extends React.Component {
     constructor(props) {
@@ -43,27 +78,27 @@ class CommentSection extends React.Component {
 
     render() {
         return(
-            <div className="comment-section">
-                <img  className="icon"  onClick ={this.addLikes} src="https://img.icons8.com/ios/50/000000/like.png" alt="heart icon"/>
-                <img className="icon"  src="https://img.icons8.com/ios/50/000000/speech-bubble.png" alt ="comment bubble"/>
-                <div className ="comments">
-                    <p className="likes">{this.state.likes} likes</p>
+            <CommentsSection>
+                <CommentsImg  onClick ={this.addLikes} src="https://img.icons8.com/ios/50/000000/like.png" alt="heart icon"/>
+                <CommentsImg  src="https://img.icons8.com/ios/50/000000/speech-bubble.png" alt ="comment bubble"/>
+                <CommentsDiv>
+                    <Likes>{this.state.likes} likes</Likes>
                     {this.state.comments.map ((comment, index) => (
                     <Comment key={index} comment={comment} />
                     ))}
-                    <p className="timestamp">{this.state.data.timestamp}</p>
-                </div>
-                <form onSubmit ={this.addNewComment}>
-                    <input className="add-comment"
+                    <Timestamp>{this.state.data.timestamp}</Timestamp>
+                </CommentsDiv>
+                <Form onSubmit ={this.addNewComment}>
+                    <Input
                         value={this.state.comment}
                         type ="text"
                         name="comment"
                         placeholder = "Add a comment..."
                         onChange= {this.handleChanges}
                     />
-                    <img className="icon" src="https://img.icons8.com/ios/50/000000/ellipsis-filled.png" alt="ellipsis icon" />
-                </form>
-            </div>
+                    <CommentsImg src="https://img.icons8.com/ios/50/000000/ellipsis-filled.png" alt="ellipsis icon" />
+                </Form>
+            </CommentsSection>
         );
     }
 }

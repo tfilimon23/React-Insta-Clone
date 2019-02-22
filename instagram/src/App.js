@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import styled from 'styled-components';
 
 import './dummy-data';
 
@@ -13,6 +14,11 @@ import withAuthenticate from './authentication/withAuthenticate';
 
 
 const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(LoginPage);
+
+const AppDiv =styled.div`
+width: 1024px;
+`;
+
 
 class App extends Component {
   constructor (){
@@ -33,25 +39,18 @@ class App extends Component {
     })
   }
 
-  searchBar = e => {
-    e.preventDefault();
-    this.setState({
-    data: this.state.data.filter(post => post.username.toLowerCase().includes(this.state.username.toLowerCase())),
-      
-    });
-  };
-
-
+  
   render() {
+    const filtered = this.state.data.filter(post => post.username.includes(this.state.username));
     return (
-      <div className="App">
+      <AppDiv>
         <PostsPage
-          data ={this.state.data}
+          data = {filtered}
           handleChanges={this.handleChanges}
           searchBar={this.searchBar}
           username= {this.state.username}
         />
-      </div>
+      </AppDiv>
     );
   }
 }

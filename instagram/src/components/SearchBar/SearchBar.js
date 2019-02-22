@@ -1,5 +1,5 @@
 import React from 'react';
-import './SearchBar.css';
+
 import './instagram-logo.png';
 import styled from 'styled-components';
 
@@ -21,7 +21,7 @@ text-align: center;
 `;
 
 const IconImg = styled.img`
-width: 25px;
+width: 50px;
 padding: 10px;
 `;
 
@@ -33,10 +33,10 @@ const SearchBar = props => {
     return(
         <Header>
             <Section>
-                <img className="icon" src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="instagram icon"/>
+                <IconImg src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="instagram icon"/>
                 <LogoImg src="instagram-logo.png" alt="instagram name logo"/>
             </Section>
-            <form onSubmit={props.searchBar}>
+            <form>
                 <Input
                     value={props.username}
                     type ="text"
@@ -46,9 +46,9 @@ const SearchBar = props => {
                 />
             </form>
             <div>
-                <img className="icon" src="https://img.icons8.com/ios/50/000000/0-percents.png" alt="circle icon"/>
-                <img className="icon" src="https://img.icons8.com/ios/50/000000/like.png" alt="heart icon"/>
-                <img className="icon" src="https://img.icons8.com/ios/50/000000/user.png" alt="user icon"/>
+                <IconImg src="https://img.icons8.com/ios/50/000000/0-percents.png" alt="circle icon"/>
+                <IconImg src="https://img.icons8.com/ios/50/000000/like.png" alt="heart icon"/>
+                <IconImg src="https://img.icons8.com/ios/50/000000/user.png" alt="user icon"/>
             </div>
         </Header>
     );
