@@ -1,12 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
 
+const CommentDiv = styled.div`
+display: flex;
+align-items: center;
+`;
+
+const CommentUser = styled.h5`
+font-size: 1 rem;
+margin-right: 10px;
+`;
 
 const Comment = props => {
     return(
-        <div className="comment">
-            <h5 className="comment-user">{props.comment.username}</h5>
-            <p className="comment-text">{props.comment.text}</p>
-        </div>
+        <CommentDiv>
+            <CommentUser>{props.comment.username}</CommentUser>
+            <p>{props.comment.text}</p>
+        </CommentDiv>
     );
 }
 
