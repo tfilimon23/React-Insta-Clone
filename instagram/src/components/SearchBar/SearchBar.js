@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './instagram-logo.png';
+import InstaLogo from './instagram-logo.png';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -26,6 +26,7 @@ padding: 10px;
 `;
 
 const LogoImg =styled.img`
+width: 100px;
 border-left: 1px solid black;
 `;
 
@@ -34,7 +35,7 @@ const SearchBar = props => {
         <Header>
             <Section>
                 <IconImg src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="instagram icon"/>
-                <LogoImg src="instagram-logo.png" alt="instagram name logo"/>
+                <LogoImg src={InstaLogo} alt="instagram name logo"/>
             </Section>
             <form>
                 <Input
